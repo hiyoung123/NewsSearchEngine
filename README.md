@@ -2,7 +2,7 @@
 使用 Python 和 C++ 结合实现的新闻搜索引擎系统，本系统主要包括数据爬取、根据 BM25 算法进行搜索排序以及热门搜索等功能。
 
 ## 效果展示
-![](https://github.com/hiyoung123/NewsSearchEngine/Resource/Sep-04-2021 17-58-34.gif)
+![](https://github.com/hiyoung123/NewsSearchEngine/blob/master/Resource/Sep-04-2021%2017-58-34.gif)
 ## 下载系统
 
 使用 Scrapy 框架，爬取新浪新闻、网易新闻和搜狐新闻每日滚动新闻，进行增量爬取。通过 BloomFilter 进行网页 URL 过滤，保证爬取网页唯一。
