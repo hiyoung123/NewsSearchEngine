@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'components/base.html' %}
+
+{% block search %}{% include 'components/search.html' %}{% endblock %}
+{% block info %}
+	<p class="history">
+		<label>热门搜索：</label>
+        {% for item in data %}
+		    <a href="/search?query={{ item }}">{{ item }}</a>
+        {% endfor %}
+	</p>
+{% endblock %}
+{% block content %}
+	<section class="cards">
+		<div class="card">
+			<header><h2>&#128218; 搜索准确 </h2></header>
+			<p>使用NLP技术，多路召回策略，精准定位查询内容，答你所问，查你所查。</p>
+		</div>
+		<div class="card">
+			<header><h2>&#128300; 响应速度快 </h2></header>
+			<p>后台服务端为 brpc 框架搭建，专为性能而生，查询速度快。</p>
+		</div>
+		<div class="card">
+			<header><h2>&#128176; 完全免费 </h2></header>
+			<p>数据来源为爬取多个新闻网站，仅供学习研究，不做商业用途，免费使用。</p>
+		</div>
+	</section>
+	<section class="cards">
+		<div class="card">
+			<header><h2>&#128197; 新闻最新 </h2></header>
+			<p>数据爬虫每隔半小时爬取一次，数据及时更新，保证获取最新新闻。</p>
+		</div>
+		<div class="card">
+			<header><h2>&#128161; 搜索推荐 </h2></header>
+			<p>根据历史搜索，个性化推荐相关新闻，智能便捷。</p>
+		</div>
+	</section>
+
+{% endblock %}

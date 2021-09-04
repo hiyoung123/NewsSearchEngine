@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Muler is a Flask app that allows users to search for pharmacological information by generic or proprietary drug names.">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>新闻搜索引擎</title>
+</head>
+<body class="wrapper">
+    <main class="content">
+        <!-- 头部导航 -->
+        {% block header %}{% include 'components/header.html' %}{% endblock %}
+        <!--  搜索栏  -->
+        {% block search %}{% endblock %}
+        {% block info %}{% endblock %}
+        <!-- 具体内容 -->
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        {% block footer %}{% include 'components/footer.html' %}{% endblock %}
+    </footer>
+</body>
+</html>
+<script src="/static/toggle-theme.js"></script>

@@ -1,0 +1,77 @@
+syntax = "proto2";
+
+package NLP;
+
+option cc_generic_services = true;
+
+// 分词： request(string), response(list<string, TF>)
+
+message SegmentResult {
+    required string token = 1;
+    required int32 TF = 2;
+};
+
+message SegmentRequest {
+    required string sentence = 1;
+};
+
+message SegmentResponse {
+    repeated SegmentResult result = 1;
+};
+
+service SegmentService {
+    rpc cut(SegmentRequest) returns (SegmentResponse);
+};
+
+
+// 召回：request（List<string>） response(List<WordItem<word, DF, IndexItem<<DocId, TF, dl>, <DocId, TF, dl> ... >>>)
+
+message IndexItem {
+    required int32 DocId = 1;
+    required int32 TF = 2;
+    required int32 dl = 3;
+};
+
+message WordItem {
+    required string word = 1;
+    required int32 DF = 2;
+    repeated IndexItem index_item = 3;
+};
+
+message RecallRequest {
+    repeated string tokens = 1;
+};
+
+message RecallResponse {
+    repeated WordItem result = 1;
+};
+
+service RecallService {
+    rpc recall(RecallRequest) returns (RecallResponse);
+};
+
+// // 排序 request(List<string, df, qtf, List<IndexItem<DocId, dtf, len>>), response(List<DocId, Score>)
+
+message SortReqItem {
+    required string word = 1;
+    required int32 DF = 2;
+    required int32 qtf = 3;
+    repeated IndexItem index_item = 4;
+}
+
+message SortRequest {
+    repeated SortReqItem item = 1;
+};
+
+message SortResItem {
+    required int32 DocId = 1;
+    required float score = 2;
+};
+
+message SortResponse {
+    repeated SortResItem result = 1;
+};
+
+service SortService {
+    rpc sort(SortRequest) returns (SortResponse);
+};

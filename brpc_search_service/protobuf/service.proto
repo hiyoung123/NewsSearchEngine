@@ -1,0 +1,35 @@
+syntax = "proto2";
+
+package NLP;
+
+option cc_generic_services = true;
+
+// 搜索： request(string), response(list<docid, score>)
+
+message SearchRequest {
+    required string query = 1;
+};
+
+message SearchResItem {
+    required int32 DocId = 1;
+    required float score = 2;
+    required string title = 3;
+    required string content = 4;
+    required string url = 5;
+};
+
+message SearchResponse {
+    repeated SearchResItem result = 1;
+};
+
+message SearchHotRequest {
+};
+
+message SearchHotResponse {
+    repeated string result = 1;
+};
+
+service SearchService {
+    rpc query(SearchRequest) returns (SearchResponse);
+    rpc hot(SearchHotRequest) returns (SearchHotResponse);
+};
