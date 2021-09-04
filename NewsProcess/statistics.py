@@ -49,6 +49,3 @@ if __name__ == "__main__":
     result = build_word_dict_from_csv(data)
     with open('../data/news.json', 'w', encoding='utf-8') as file_obj:
         json.dump(result, file_obj, ensure_ascii=False)
-    # print(data[54])
-    # print(data[92])
-    # print(data[71])

@@ -5,7 +5,6 @@ import re
 import jieba
 import numpy as np
 import pandas as pd
-from deduplicate.deduplicate import DuplicateRemove
 from preprocess.rule import (HTML_TAG_PATTERN, URL_PATTERN,
                              EMAIL_PATTERN, CELL_PHONE_PATTERN,
                              LANDLINE_PHONE_PATTERN, REDUNDANT_PATTERN)
